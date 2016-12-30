@@ -1,7 +1,7 @@
 {
-  "name": "API.AI webhook demonstration",
-  "description": "API.AI webhook demonstration",
-  "repository": "https://github.com/api-ai/apiai-weather-webhook-sample",
+  "name": "API.AI webhook to support management of lists",
+  "description": "Manage Lists webhook",
+  "repository": "https://github.com/jschriesheim/manage-lists",
   "logo": "http://xvir.github.io/img/apiai.png",
-  "keywords": ["api.ai", "natural language"]
+  "keywords": ["api.ai", "manage lists", "natural language"]
 }
