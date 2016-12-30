@@ -29,8 +29,14 @@ def webhook():
 
 
 def processRequest(req):
+    intent = req.get("result").get("metadata").get("intentName")
+    item = req.get("result").get("parameters").get("Item")
+    list = req.get("result").get("parameters").get("List")
+    
+    print "Intent: " + intent + " Item: " + item + " List: " + list
+
     if req.get("result").get("action") != "yahooWeatherForecast":
-        return {}
+       return {}
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
     yql_query = makeYqlQuery(req)
     if yql_query is None:
@@ -77,8 +83,9 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
-             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
+    #speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
+    #       ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
+    speech = intent + " using " + item + " in " + list + " list"
 
     print("Response:")
     print(speech)
@@ -88,7 +95,7 @@ def makeWebhookResult(data):
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
+        "source": "manage-lists"
     }
 
 
