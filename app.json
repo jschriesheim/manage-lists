@@ -1,5 +1,5 @@
 {
-  "name": "API.AI webhook to support management of lists",
+  "name": "API.AI webhook for manage lists",
   "description": "Manage Lists webhook",
   "repository": "https://github.com/jschriesheim/manage-lists",
   "logo": "http://xvir.github.io/img/apiai.png",
