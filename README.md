@@ -1,6 +1,6 @@
-# Api.ai - sample webhook implementation in Python
+# Manage Lists - webhook implementation to support API.AI voice actions
 
-This is a really simple webhook implementation that gets Api.ai classification JSON (i.e. a JSON output of Api.ai /query endpoint) and returns a fulfillment response.
+This webhook implementation that gets Api.ai classification JSON (i.e. a JSON output of Api.ai /query endpoint), modifies or reads list data, and returns a fulfillment response.
 
 More info about Api.ai webhooks could be found here:
 [Api.ai Webhook](https://docs.api.ai/docs/webhook)
@@ -9,8 +9,8 @@ More info about Api.ai webhooks could be found here:
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 # What does the service do?
-It's a weather information fulfillment service that uses [Yahoo! Weather API](https://developer.yahoo.com/weather/).
-The services takes the `geo-city` parameter from the action, performs geolocation for the city and requests weather information from Yahoo! Weather public API. 
+It's a fulfillment service that maintains lists for shopping. Each operation provides an item name and a list name.
+Supported actions include "add item to list", "delete item from list", "create list", "delete list" and "read list".
 
-The service packs the result in the Api.ai webhook-compatible response JSON and returns it to Api.ai.
+The service packs the result in the Api.ai webhook-compatible response JSON and returns it.
 
