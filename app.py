@@ -38,27 +38,27 @@ def processRequest(req):
     print "Intent: " + intent + " Item: " + item + " List: " + list
     speech = ""
     
-    if intent == "CreateList:
+    if intent == "CreateList":
         if createList(list) == True:
             speech = "Created list " + list
         else:
             speech = "List " + list + " already exists"
-    elif intent == "DeleteList:
+    elif intent == "DeleteList":
         if deleteList(list) == True:
             speech = "List " + list + " deleted"
         else:
             speech = "List " + list + " not found"
-    elif intent == "AddItem:
+    elif intent == "AddItem":
         if addItem(item, list) == True:
             speech = item + " added to " + list + " list"
         else:
             speech = 'List ' + list + ' not found'
-    elif intent == "RemoveItem:
+    elif intent == "RemoveItem":
         if removeItem(item, list) == True:
             speech = item + " removed from " + list + " list"
         else:
             speech = "Couldn't remove " + item + " from " + list + " list"
-    elif intent == "ReadList:
+    elif intent == "ReadList":
         if (items = readList) == []:
             speech = list + " list not found or empty"
         else:
