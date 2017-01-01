@@ -59,7 +59,7 @@ def processRequest(req):
         else:
             speech = "Couldn't remove " + item + " from " + list + " list"
     elif intent == "ReadList":
-        if (items = readList) == []:
+        if (items = readList(list)) == []:
             speech = list + " list not found or empty"
         else:
             speech = list + " list contains "
