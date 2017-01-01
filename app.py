@@ -37,15 +37,15 @@ def processRequest(req):
     
     print ("Intent: " + intent)
     
-    itemname = req.get("result").get("parameters").get("Item")
-    
-    print ("Item: " + itemname)
-    
     listname = req.get("result").get("parameters").get("List")
     
     print ("List: " + listname)
 
+    itemname = req.get("result").get("parameters").get("item")
     
+    print ("Item: " + itemname)
+    
+
     print ("Intent: " + intent + " Item: " + itemname + " List: " + listname)
     speech = ""
     
