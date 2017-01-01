@@ -20,9 +20,13 @@ def webhook():
 
     print("Request:")
     print(json.dumps(req, indent=4))
-
+    
+    print("about to call processRequest") # debug
+    
     res = processRequest(req)
 
+    print("called processRequest") # debug
+    
     res = json.dumps(res, indent=4)
     # print(res)
     r = make_response(res)
