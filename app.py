@@ -33,6 +33,7 @@ def webhook():
 
 
 def processRequest(req):
+    print("just entered processRequest") # debug
     
     intent = req.get("result").get("metadata").get("intentName")
     itemname = req.get("result").get("parameters").get("Item")
