@@ -32,38 +32,38 @@ def webhook():
 
 def processRequest(req):
     intent = req.get("result").get("metadata").get("intentName")
-    item = req.get("result").get("parameters").get("Item")
-    list = req.get("result").get("parameters").get("List")
+    itemname = req.get("result").get("parameters").get("Item")
+    listname = req.get("result").get("parameters").get("List")
     
-    print "Intent: " + intent + " Item: " + item + " List: " + list
+    print "Intent: " + intent + " Item: " + itemname + " List: " + listname
     speech = ""
     
     if intent == "CreateList":
-        if createList(list) == True:
-            speech = "Created list " + list
+        if createList(listname) == True:
+            speech = "Created list " + listname
         else:
-            speech = "List " + list + " already exists"
+            speech = "List " + listname + " already exists"
     elif intent == "DeleteList":
         if deleteList(list) == True:
-            speech = "List " + list + " deleted"
+            speech = "List " + listname + " deleted"
         else:
-            speech = "List " + list + " not found"
+            speech = "List " + listname + " not found"
     elif intent == "AddItem":
-        if addItem(item, list) == True:
-            speech = item + " added to " + list + " list"
+        if addItem(item, listname) == True:
+            speech = itemname + " added to " + listname + " list"
         else:
-            speech = 'List ' + list + ' not found'
+            speech = 'List ' + listname + ' not found'
     elif intent == "RemoveItem":
-        if removeItem(item, list) == True:
-            speech = item + " removed from " + list + " list"
+        if removeItem(itemname, listname) == True:
+            speech = itemname + " removed from " + listname + " list"
         else:
-            speech = "Couldn't remove " + item + " from " + list + " list"
+            speech = "Couldn't remove " + itemname + " from " + listname + " list"
     elif intent == "ReadList":
-        items = readList(list)
+        items = readList(listname)
         if items.count() == 0:
-            speech = list + " list not found or empty"
+            speech = listname + " list not found or empty"
         else:
-            speech = list + " list contains "
+            speech = listname + " list contains "
             for each in items:
                 speech += each
                 speech += ", "
