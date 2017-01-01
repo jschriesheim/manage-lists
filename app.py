@@ -22,8 +22,6 @@ def webhook():
     print(json.dumps(req, indent=4))
         
     res = processRequest(req)
-
-    print("called processRequest") # debug
     
     res = json.dumps(res, indent=4)
     # print(res)
@@ -36,8 +34,17 @@ def processRequest(req):
     print("just entered processRequest") # debug
     
     intent = req.get("result").get("metadata").get("intentName")
+    
+    print ("Intent: " + intent)
+    
     itemname = req.get("result").get("parameters").get("Item")
+    
+    print ("Item: " + itemname)
+    
     listname = req.get("result").get("parameters").get("List")
+    
+    print ("List: " + listname)
+
     
     print ("Intent: " + intent + " Item: " + itemname + " List: " + listname)
     speech = ""
