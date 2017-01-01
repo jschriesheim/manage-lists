@@ -37,7 +37,7 @@ def processRequest(req):
     
     print ("Intent: " + intent)
     
-    listname = req.get("result").get("parameters").get("List")
+    listname = req.get("result").get("parameters").get("list")
     
     print ("List: " + listname)
 
