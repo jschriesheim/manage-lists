@@ -35,12 +35,12 @@ def processRequest(req):
     item = req.get("result").get("parameters").get("Item")
     list = req.get("result").get("parameters").get("List")
     
-    # print "Intent: " + intent + " Item: " + item + " List: " + list
+    print "Intent: " + intent + " Item: " + item + " List: " + list
     speech = ""
     
     if intent == "CreateList:
         if createList(list) == True:
-            speech = "List " + list + " created"
+            speech = "Created list " + list
         else:
             speech = "List " + list + " already exists"
     elif intent == "DeleteList:
