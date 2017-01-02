@@ -31,22 +31,8 @@ def webhook():
 
 
 def processRequest(req):
-    print("just entered processRequest") # debug
-    
     intent = req.get("result").get("metadata").get("intentName")
-    
-    print ("Intent: " + intent)
-    
-    listname = req.get("result").get("parameters").get("list")
-    
-    print ("List: " + listname)
-
-    itemname = req.get("result").get("parameters").get("item")
-
-    print ("Item: " + itemname)
-    
-
-    print ("Intent: " + intent + " Item: " + itemname + " List: " + listname)
+    listname = req.get("result").get("parameters").get("list")    
     speech = ""
     
     if intent == "CreateList":
@@ -55,16 +41,18 @@ def processRequest(req):
         else:
             speech = "List " + listname + " already exists"
     elif intent == "DeleteList":
-        if deleteList(list) == True:
+        if deleteList(listname) == True:
             speech = "List " + listname + " deleted"
         else:
             speech = "List " + listname + " not found"
     elif intent == "AddItem":
+        itemname = req.get("result").get("parameters").get("item")
         if addItem(item, listname) == True:
             speech = itemname + " added to " + listname + " list"
         else:
             speech = 'List ' + listname + ' not found'
     elif intent == "RemoveItem":
+        itemname = req.get("result").get("parameters").get("item")
         if removeItem(itemname, listname) == True:
             speech = itemname + " removed from " + listname + " list"
         else:
