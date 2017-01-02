@@ -41,8 +41,8 @@ def processRequest(req):
     
     print ("List: " + listname)
 
-    #itemname = req.get("result").get("parameters").get("item")
-    itemname = "none"
+    itemname = req.get("result").get("parameters").get("item")
+
     print ("Item: " + itemname)
     
 
