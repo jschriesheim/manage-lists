@@ -47,7 +47,7 @@ def processRequest(req):
             speech = "List " + listname + " not found"
     elif intent == "AddItem":
         itemname = req.get("result").get("parameters").get("item")
-        if addItem(item, listname) == True:
+        if addItem(itemname, listname) == True:
             speech = itemname + " added to " + listname + " list"
         else:
             speech = 'List ' + listname + ' not found'
