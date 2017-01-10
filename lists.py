@@ -18,7 +18,7 @@ def getLists():
         items = json.loads(savedItems)
     return True
 
-def putLists()
+def putLists():
     r.put('lists', json.dumps(lists))
     r.pub('items', json.dumps(items))
     return True
