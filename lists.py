@@ -6,10 +6,16 @@ import json
 r = redis.from_url(os.environ.get("REDIS_URL"))
 
 def getLists():
-    lists = []
-    items = []
-    lists = json.loads(r.get('lists'))
-    items = json.loads(r.get('items'))
+    savedLists = r.get('lists')
+    if savedLists == None:
+        lists = []
+    else:
+        lists = json.loads(savedLists)
+    savedItems = r.get('items')
+    if savedItems == None:
+        items = []
+    else:
+        items = json.loads(savedItems)
     return True
 
 def putLists()
