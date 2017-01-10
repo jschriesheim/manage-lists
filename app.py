@@ -36,12 +36,10 @@ def processRequest(req):
     speech = ""
     
     if intent == "CreateList":
-        print ("*** about to create list ***")
         if createList(listname) == True:
             speech = "Created list " + listname
         else:
             speech = "List " + listname + " already exists"
-        print ("*** attempted to creat list ***")
     elif intent == "DeleteList":
         if deleteList(listname) == True:
             speech = "List " + listname + " deleted"
