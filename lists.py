@@ -1,17 +1,23 @@
 # manage list functions
 import os
 import redis
+import json
 
 r = redis.from_url(os.environ.get("REDIS_URL"))
 
 def getLists():
+    lists = []
+    items = []
+    lists = json.loads(r.get('lists'))
+    items = json.loads(r.get('items'))
     return True
 
 def putLists()
+    r.put('lists', json.dumps(lists))
+    r.pub('items', json.dumps(items))
     return True
 
-lists = []
-items = []
+
 
 def createList(list):
     getLists()
