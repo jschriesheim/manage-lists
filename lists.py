@@ -24,8 +24,8 @@ def getLists():
     return True
 
 def putLists():
-    r.put('lists', json.dumps(lists))
-    r.put('items', json.dumps(items))
+    r.set('lists', json.dumps(lists))
+    r.set('items', json.dumps(items))
     return True
 
 
