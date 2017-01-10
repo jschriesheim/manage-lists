@@ -33,10 +33,10 @@ def createList(list):
         putLists()
         return True
     else:
-        print('List ' + list + ' already exists')
+        # print('List ' + list + ' already exists')
         return False
 
-def deleteList(list)
+def deleteList(list):
     getLists()
     if (lists.count(list) != 0):
         items.pop(lists.index(list))
@@ -44,14 +44,14 @@ def deleteList(list)
         putLists()
         return True
     else:
-        print('List ' + list + ' not found')
+        # print('List ' + list + ' not found')
         return False
 
 
 def addItem(item, list):
     getLists()
     if (lists.count(list) == 0):
-        print('List ' + list + ' not found')
+        # print('List ' + list + ' not found')
         return False
     else:
         items[lists.index(list)].append(item)
@@ -62,10 +62,10 @@ def addItem(item, list):
 def removeItem(item, list):
     getLists()
     if (lists.count(list) == 0):
-        print('List ' + list + ' not found')
+        # print('List ' + list + ' not found')
         return False
     elif (items[lists.index(list)].count(item) == 0):
-        print('Item ' + item + ' not found on ' + list + ' list')
+        # print('Item ' + item + ' not found on ' + list + ' list')
         return False
     else:
         items[lists.index(list)].remove(item)
@@ -75,7 +75,7 @@ def removeItem(item, list):
 def readList(list):
     getLists()
     if (lists.count(list) == 0):
-        print('List ' + list + ' not found')
+        # print('List ' + list + ' not found')
         return []
     else:
         return items[lists.index(list)]
