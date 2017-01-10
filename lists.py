@@ -4,6 +4,7 @@ import redis
 import json
 
 r = redis.from_url(os.environ.get("REDIS_URL"))
+
 lists = []
 items = []
 
@@ -30,7 +31,6 @@ def putLists():
 
 
 def createList(list):
-    print("*** in createList - r is equal to " + r)
     getLists()
     if (lists.count(list) == 0):
         lists.append(list)
