@@ -11,16 +11,18 @@ def getLists():
         lists = []
     else:
         lists = json.loads(savedLists)
+    
     savedItems = r.get('items')
     if savedItems == None:
         items = []
     else:
         items = json.loads(savedItems)
+        
     return True
 
 def putLists():
     r.put('lists', json.dumps(lists))
-    r.pub('items', json.dumps(items))
+    r.put('items', json.dumps(items))
     return True
 
 
@@ -44,14 +46,14 @@ def deleteList(list):
         putLists()
         return True
     else:
-        # print('List ' + list + ' not found')
+        print('List ' + list + ' not found')
         return False
 
 
 def addItem(item, list):
     getLists()
     if (lists.count(list) == 0):
-        # print('List ' + list + ' not found')
+        print('List ' + list + ' not found')
         return False
     else:
         items[lists.index(list)].append(item)
@@ -62,10 +64,10 @@ def addItem(item, list):
 def removeItem(item, list):
     getLists()
     if (lists.count(list) == 0):
-        # print('List ' + list + ' not found')
+        print('List ' + list + ' not found')
         return False
     elif (items[lists.index(list)].count(item) == 0):
-        # print('Item ' + item + ' not found on ' + list + ' list')
+        print('Item ' + item + ' not found on ' + list + ' list')
         return False
     else:
         items[lists.index(list)].remove(item)
@@ -75,7 +77,7 @@ def removeItem(item, list):
 def readList(list):
     getLists()
     if (lists.count(list) == 0):
-        # print('List ' + list + ' not found')
+        print('List ' + list + ' not found')
         return []
     else:
         return items[lists.index(list)]
